@@ -53,6 +53,11 @@ function createApp() {
 if (require.main === module) {
   (async () => {
     await createSchema(db); // safe: only creates missing tables
+    const admin = await db('admins').first();
+    if (!admin) {
+      await require('../../database/seed')(db);
+      console.log('Database initialized and seeded.');
+    }
     const port = process.env.PORT || 4000;
     createApp().listen(port, '0.0.0.0', () => console.log(`CAIMS Sports Fest API on http://localhost:${port}`));
   })().catch((e) => { console.error('Failed to start:', e.message); process.exit(1); });

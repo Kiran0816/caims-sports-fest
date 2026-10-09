@@ -3,7 +3,7 @@ services:
     name: caims-sports-fest
     runtime: node
     plan: free
-    buildCommand: npm run install:all && npm run build && npm run db:init && npm run db:seed
+    buildCommand: npm run install:all && npm run build
     startCommand: npm start
     envVars:
       - key: NODE_ENV

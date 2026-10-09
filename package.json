@@ -1,6 +1,9 @@
 {
   "name": "caims-sports-fest-2026",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "install:all": "npm --prefix backend install && npm --prefix frontend install",
     "db:init": "npm --prefix backend run db:init",
