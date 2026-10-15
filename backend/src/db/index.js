@@ -9,7 +9,7 @@ let config;
 if (isPg) {
   config = {
     client: 'pg',
-    connection: { connectionString: url, ssl: process.env.DATABASE_SSL === 'true' ? { rejectUnauthorized: false } : false },
+    connection: { connectionString: url, ssl: process.env.DATABASE_SSL === 'false' ? false : { rejectUnauthorized: false } },
     pool: { min: 0, max: 10 },
   };
 } else {
